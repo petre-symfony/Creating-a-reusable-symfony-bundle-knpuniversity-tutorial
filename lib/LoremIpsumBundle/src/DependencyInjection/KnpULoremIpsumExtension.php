@@ -9,6 +9,7 @@ use Symfony\Component\Config\FileLocator;
 class KnpULoremIpsumExtension extends Extension {
   //put your code here
   public function load(array $configs, ContainerBuilder $container) {
+    var_dump($configs); die();
     $loader = new XmlFileLoader($container, new FileLocator(__DIR__. '/../Resources/config'));
     $loader->load('services.xml');
   }
