@@ -6,6 +6,6 @@
 
     <services>
         <!-- Explicitly configure the service -->
-        <service id="KnpU\LoremIpsumBundle\KnpUIpsum" />
+        <service id="knpu_lorem_ipsum-knpu_ipsum" class="KnpU\LoremIpsumBundle\KnpUIpsum" />
     </services>
 </container>
