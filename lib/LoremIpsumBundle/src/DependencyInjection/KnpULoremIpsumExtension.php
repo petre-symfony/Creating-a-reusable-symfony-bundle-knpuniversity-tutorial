@@ -5,6 +5,7 @@ use Symfony\Component\HttpKernel\DependencyInjection\Extension;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Loader\XmlFileLoader;
 use Symfony\Component\Config\FileLocator;
+use Symfony\Component\DependencyInjection\Reference;
 
 class KnpULoremIpsumExtension extends Extension {
   public function load(array $configs, ContainerBuilder $container) {
@@ -17,7 +18,7 @@ class KnpULoremIpsumExtension extends Extension {
     
     $definition = $container->getDefinition('knpu_lorem_ipsum-knpu_ipsum');
     if (null !== $config['word_provider']){
-      $definition->setArgument(0, $config['word_provider']);
+      $definition->setArgument(0, new Reference($config['word_provider']));
     }
     $definition->setArgument(1, $config['unicorns_are_real']);
     $definition->setArgument(2, $config['min_sunshine']);
