@@ -16,8 +16,8 @@ class KnpULoremIpsumExtension extends Extension {
     $config = $this->processConfiguration($configuration, $configs);  
     
     $definition = $container->getDefinition('knpu_lorem_ipsum-knpu_ipsum');
-    $definition->setArgument(0, $config['unicorns_are_real']);
-    $definition->setArgument(1, $config['min_sunshine']);
+    $definition->setArgument(1, $config['unicorns_are_real']);
+    $definition->setArgument(2, $config['min_sunshine']);
   }
 
   public function getAlias() {
