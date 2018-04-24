@@ -1,8 +1,9 @@
 <?php
 namespace KnpU\LoremIpsumBundle;
 
+use KnpU\LoremIpsumBundle\WordProviderInterface;
 
-class KnpUWordProvider {
+class KnpUWordProvider implements WordProviderInterface{
   public function getWordList():array {
     return [
       'adorable',

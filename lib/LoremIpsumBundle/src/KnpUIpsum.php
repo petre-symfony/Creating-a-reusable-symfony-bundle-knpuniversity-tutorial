@@ -2,7 +2,8 @@
 
 namespace KnpU\LoremIpsumBundle;
 
-use KnpU\LoremIpsumBundle\KnpUWordProvider;
+use KnpU\LoremIpsumBundle\WordProviderInterface;
+
 class KnpUIpsum {
   private $wordProvider;
   
@@ -10,7 +11,7 @@ class KnpUIpsum {
 
   private $minSunshine;
 
-  public function __construct(KnpUWordProvider $wordProvider, bool $unicornsAreReal = true, $minSunshine = 3){
+  public function __construct(WordProviderInterface $wordProvider, bool $unicornsAreReal = true, $minSunshine = 3){
     $this->wordProvider = $wordProvider;
     $this->unicornsAreReal = $unicornsAreReal;
     $this->minSunshine = $minSunshine;
