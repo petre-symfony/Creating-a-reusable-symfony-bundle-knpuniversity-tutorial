@@ -1,0 +1,13 @@
+{
+    "name": "knpuniversity/lorem-ipsum-bundle",
+    "description": "Happy lorem ipsum",
+    "type": "symfony-bundle",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Ryan Weaver",
+            "email": "ryan@knpuniversity.com"
+        }
+    ],
+    "require": {}
+}
