@@ -21,5 +21,8 @@
       "psr-4": {
         "KnpU\\LoremIpsumBundle\\Tests\\": "tests/"
       }
+    },
+    "require-dev": {
+        "symfony/phpunit-bridge": "^4.0"
     }
 }
