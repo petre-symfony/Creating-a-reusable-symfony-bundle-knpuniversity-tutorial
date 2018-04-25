@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "f6eba8daead9e87802e7a1b3f56dc68f",
+    "content-hash": "d21dde090ac191333a773ab5dfbd93ba",
     "packages": [
         {
             "name": "clue/stream-filter",
@@ -704,6 +704,35 @@
                 "markdown"
             ],
             "time": "2018-01-23T15:34:53+00:00"
+        },
+        {
+            "name": "knpuniversity/lorem-ipsum-bundle",
+            "version": "dev-master",
+            "dist": {
+                "type": "path",
+                "url": "LoremIpsumBundle",
+                "reference": "6654acc021e8ad0170710c0d0aa5ebdf1a4dceb8",
+                "shasum": null
+            },
+            "require": {
+                "php": "^7.1.3"
+            },
+            "type": "symfony-bundle",
+            "autoload": {
+                "psr-4": {
+                    "KnpU\\LoremIpsumBundle\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Ryan Weaver",
+                    "email": "ryan@knpuniversity.com"
+                }
+            ],
+            "description": "Happy lorem ipsum"
         },
         {
             "name": "michelf/php-markdown",
@@ -4248,6 +4277,7 @@
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
+        "knpuniversity/lorem-ipsum-bundle": 20,
         "symfony/lts": 20
     },
     "prefer-stable": false,
