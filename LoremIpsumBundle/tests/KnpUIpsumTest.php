@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Tests\Service;
+namespace KnpU\LoremIpsumBundle\Tests;
 
 use KnpU\LoremIpsumBundle\KnpUIpsum;
 use KnpU\LoremIpsumBundle\KnpUWordProvider;
