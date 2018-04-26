@@ -54,6 +54,10 @@ public function registerContainerConfiguration(LoaderInterface $loader) {
     
     $container->loadFromExtension('knpu_lorem_ipsum', $this->knpUIpsumConfig);
   });
+} 
+
+public function getCacheDir(){
+  return __DIR__.'/cache/'.spl_object_hash($this);
 }
 
 }
