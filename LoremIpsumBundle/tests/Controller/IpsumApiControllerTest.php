@@ -6,15 +6,23 @@ use Symfony\Component\HttpKernel\Kernel;
 use KnpU\LoremIpsumBundle\KnpULoremIpsumBundle;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\Config\Loader\LoaderInterface;
+use \Symfony\Component\Routing\RouteCollectionBuilder;
+use Symfony\Bundle\FrameworkBundle\Client;
+use Symfony\Bundle\FrameworkBundle\Kernel\MicroKernelTrait;
 
 class IpsumApiControllerTest extends TestCase {
   public function testIndex(){
+    $kernel = new KnpULoremIpsumControllerKernel();
+    $client = new Client($kernel);
+    $client->request('GET', '/api/');
     
+    var_dump($client->getResponse()->getContent());
+    $this->assertSame(200, $client->getResponse()->getStatusCode());
   }
 }
 
 class KnpULoremIpsumControllerKernel extends Kernel {
-  
+  use MicroKernelTrait;
   public function __construct() {
     parent::__construct('test', true);
   }
@@ -25,11 +33,13 @@ class KnpULoremIpsumControllerKernel extends Kernel {
     ];
   } 
 
-  public function registerContainerConfiguration(LoaderInterface $loader) {
-    $loader->load(function(ContainerBuilder $container){
-      
-    });
-  } 
+  public function configureContainer(ContainerBuilder $c, LoaderInterface $l){
+    
+  }
+  
+  public function configureRoutes(RouteCollectionBuilder $routes){
+    $routes->import(__DIR__.'/../../src/Resources/config/routes.xml', '/api');
+  }
 
   public function getCacheDir(){
     return __DIR__.'/cache/'.spl_object_hash($this);
