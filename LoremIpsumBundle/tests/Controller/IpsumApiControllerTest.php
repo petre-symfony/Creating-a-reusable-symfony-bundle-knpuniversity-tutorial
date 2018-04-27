@@ -9,6 +9,7 @@ use Symfony\Component\Config\Loader\LoaderInterface;
 use \Symfony\Component\Routing\RouteCollectionBuilder;
 use Symfony\Bundle\FrameworkBundle\Client;
 use Symfony\Bundle\FrameworkBundle\Kernel\MicroKernelTrait;
+use Symfony\Bundle\FrameworkBundle\FrameworkBundle;
 
 class IpsumApiControllerTest extends TestCase {
   public function testIndex(){
@@ -29,7 +30,8 @@ class KnpULoremIpsumControllerKernel extends Kernel {
 
   public function registerBundles(){
     return [
-      new KnpULoremIpsumBundle()
+      new KnpULoremIpsumBundle(),
+      new FrameworkBundle(),  
     ];
   } 
 
