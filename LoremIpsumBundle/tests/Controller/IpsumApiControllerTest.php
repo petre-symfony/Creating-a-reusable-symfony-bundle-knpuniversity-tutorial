@@ -36,7 +36,9 @@ class KnpULoremIpsumControllerKernel extends Kernel {
   } 
 
   public function configureContainer(ContainerBuilder $c, LoaderInterface $l){
-    
+    $c->loadFromExtension('framework', [
+        'secret' => 'F00'
+    ]);
   }
   
   public function configureRoutes(RouteCollectionBuilder $routes){
