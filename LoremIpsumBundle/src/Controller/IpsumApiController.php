@@ -4,7 +4,7 @@ namespace KnpU\LoremIpsumBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use KnpU\LoremIpsumBundle\KnpUIpsum;
 
-class IpsumApiController extends AbstractContoller {
+class IpsumApiController extends AbstractController {
   private $knpUIpsum;
   
   public function __construct(KnpUIpsum $knpUIpsum) {
