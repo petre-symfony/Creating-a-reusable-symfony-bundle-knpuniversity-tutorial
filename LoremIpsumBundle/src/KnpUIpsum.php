@@ -5,14 +5,20 @@ namespace KnpU\LoremIpsumBundle;
 use KnpU\LoremIpsumBundle\WordProviderInterface;
 
 class KnpUIpsum {
-  private $wordProvider;
+  /**
+   *
+   * @var WordProviderInterface[]
+   */
+  private $wordProviders;
   
   private $unicornsAreReal;
 
   private $minSunshine;
+  
+  private $wordList;
 
-  public function __construct(WordProviderInterface $wordProvider, bool $unicornsAreReal = true, $minSunshine = 3){
-    $this->wordProvider = $wordProvider;
+  public function __construct(array $wordProviders, bool $unicornsAreReal = true, $minSunshine = 3){
+    $this->wordProviders = $wordProviders;
     $this->unicornsAreReal = $unicornsAreReal;
     $this->minSunshine = $minSunshine;
   }
@@ -193,6 +199,19 @@ class KnpUIpsum {
   }
 
   private function getWordList(): array {
-    return $this->wordProvider->getWordList();
+    if (null === $this->wordList){
+      $words= [];
+      foreach($this->wordProviders as $wordProvider){
+        $words = array_merge($words , $wordProvider->getWordList());
+      }
+      
+      if(count($words) <= 1){
+        throw new \Exception('Word list must contains al least 2 words');
+      }
+      
+      $this->wordList = $words;
+    }
+    
+    return $this->wordList;
   }
 }
