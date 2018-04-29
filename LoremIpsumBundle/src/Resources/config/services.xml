@@ -7,7 +7,7 @@
     <services>
         <!-- Explicitly configure the service -->
         <service id="knpu_lorem_ipsum-knpu_ipsum" class="KnpU\LoremIpsumBundle\KnpUIpsum" public="true">
-          <argument type="collection" />
+          <argument type="tagged" tag="knpu_ipsum_word_provider"/>
             
         </service>
         <service id="knpu_lorem_ipsum-ipsum_api_controller" class="KnpU\LoremIpsumBundle\Controller\IpsumApiController" public="true">
