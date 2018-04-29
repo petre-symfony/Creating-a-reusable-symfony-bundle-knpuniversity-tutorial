@@ -6,6 +6,7 @@ use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Loader\XmlFileLoader;
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\DependencyInjection\Reference;
+use KnpU\LoremIpsumBundle\WordProviderInterface;
 
 class KnpULoremIpsumExtension extends Extension {
   public function load(array $configs, ContainerBuilder $container) {
@@ -20,6 +21,9 @@ class KnpULoremIpsumExtension extends Extension {
     
     $definition->setArgument(1, $config['unicorns_are_real']);
     $definition->setArgument(2, $config['min_sunshine']);
+    
+    $container->registerForAutoconfiguration(WordProviderInterface::class)
+      ->addTag('knpu_ipsum_word_provider');
   }
 
   public function getAlias() {
