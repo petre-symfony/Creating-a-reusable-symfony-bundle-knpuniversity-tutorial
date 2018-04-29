@@ -5,6 +5,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use KnpU\LoremIpsumBundle\KnpUIpsum;
 use KnpU\LoremIpsumBundle\Event\FilterApiResponseEvent;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
+use KnpU\LoremIpsumBundle\Event\KnpULoremIpsumEvents;
 
 class IpsumApiController extends AbstractController {
   private $knpUIpsum;
@@ -24,7 +25,7 @@ class IpsumApiController extends AbstractController {
     
     $event = new FilterApiResponseEvent($data);
     if ($this->eventDispatcher){
-      $this->eventDispatcher->dispatch('knpu_forem_ipsum.filter_api',$event);
+      $this->eventDispatcher->dispatch(KnpULoremIpsumEvents::FILTER_API, $event);
     }
     
     return $this->json($event->getData());
