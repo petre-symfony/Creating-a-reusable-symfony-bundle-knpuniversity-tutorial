@@ -13,9 +13,4 @@
 .phpunit
 /phpunit.xml
 ###< symfony/phpunit-bridge ###
-/nbproject
-/LoremIpsumBundle/vendor
-/LoremIpsumBundle/composer.lock
-/LoremIpsumBundle/phpunit.xml
-/LoremIpsumBundle/tests/cache
-/LoremIpsumBundle/tests/Controller/cache
+/nbproject/

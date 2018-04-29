@@ -50,6 +50,9 @@
     "knplabs/knp-markdown-bundle": {
         "version": "1.6.0"
     },
+    "knpuniversity/lorem-ipsum-bundle": {
+        "version": "dev-master"
+    },
     "michelf/php-markdown": {
         "version": "1.8.0"
     },
@@ -61,6 +64,9 @@
     },
     "nexylan/slack-bundle": {
         "version": "v2.0.0"
+    },
+    "nikic/php-parser": {
+        "version": "v4.0.1"
     },
     "php-http/cache-plugin": {
         "version": "v1.5.0"
