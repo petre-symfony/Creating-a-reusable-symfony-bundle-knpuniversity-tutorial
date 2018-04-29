@@ -10,7 +10,7 @@ class IpsumApiController extends AbstractController {
   private $knpUIpsum;
   private $eventDispatcher;
   
-  public function __construct(KnpUIpsum $knpUIpsum, EventDispatcherInterface $eventDispatcher) {
+  public function __construct(KnpUIpsum $knpUIpsum, EventDispatcherInterface $eventDispatcher = null) {
     $this->knpUIpsum = $knpUIpsum;
     $this->eventDispatcher = $eventDispatcher;
   }
@@ -23,7 +23,9 @@ class IpsumApiController extends AbstractController {
     ];
     
     $event = new FilterApiResponseEvent($data);
-    $this->eventDispatcher->dispatch('knpu_forem_ipsum.filter_api',$event);
+    if ($this->eventDispatcher){
+      $this->eventDispatcher->dispatch('knpu_forem_ipsum.filter_api',$event);
+    }
     
     return $this->json($event->getData());
   }  
