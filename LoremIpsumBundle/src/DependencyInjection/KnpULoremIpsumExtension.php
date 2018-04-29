@@ -22,6 +22,7 @@ class KnpULoremIpsumExtension extends Extension {
     }
     $definition->setArgument(1, $config['unicorns_are_real']);
     $definition->setArgument(2, $config['min_sunshine']);
+    $container->findTaggedServiceIds();
   }
 
   public function getAlias() {
