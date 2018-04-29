@@ -3,6 +3,7 @@ namespace KnpU\LoremIpsumBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use KnpU\LoremIpsumBundle\KnpUIpsum;
+use KnpU\LoremIpsumBundle\Event\FilterApiResponseEvent;
 
 class IpsumApiController extends AbstractController {
   private $knpUIpsum;
@@ -13,9 +14,13 @@ class IpsumApiController extends AbstractController {
 
 
   public function index(){
-    return $this->json([
-        'paragraphs' => $this->knpUIpsum->getParagraphs(),
-        'sentences' => $this->knpUIpsum->getSentences()
-    ]);
+    $data = [
+      'paragraphs' => $this->knpUIpsum->getParagraphs(),
+      'sentences' => $this->knpUIpsum->getSentences()
+    ];
+    
+    $event = new FilterApiResponseEvent($data);
+    
+    return $this->json($event->getData());
   }  
 }
